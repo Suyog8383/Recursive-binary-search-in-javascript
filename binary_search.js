@@ -1,18 +1,18 @@
-let arr=[2,6,9,16,80];
-let start=0;
-let end=arr.length-1;
-let target=16;
-let pos=undefined;
-function binarySearch(arr,start,end){
-         let mid=Math.floor((start+end)/2);
-         if(arr[mid]===target){
-             pos=mid;
-             return mid;
-         }else if(arr[mid]<target){
-            binarySearch(arr,mid+1,end) 
-         }else{
-             binarySearch(arr,mid-1,end)  
-         }
+let arr = [2, 6, 9, 16, 80];
+let start = 0;
+let end = arr.length - 1;
+let target = 16;
+
+function binarySearch(arr, start, end) {
+  let mid = Math.floor((start + end) / 2);
+  if (arr[mid] === target) {
+    return mid;
+  } else if (arr[mid] < target) {
+    return binarySearch(arr, mid + 1, end);
+  } else {
+    return binarySearch(arr, start, mid - 1);
+  }
 }
-binarySearch(arr,start,end);
-console.log(pos)
+
+console.log("result =", binarySearch(arr, start, end));
+
